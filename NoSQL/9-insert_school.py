@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-""" List all documents in Python """
-import pymongo
+""" Insert a document in Python """
 
 
-def list_all(mongo_collection):
-    """ lists all documents in a collection """
-    if not mongo_collection:
-        return []
-    return list(mongo_collection.find())
+def insert_school(mongo_collection, **kwargs):
+    """ inserts a new document in a collection based on kwargs,
+    Returns the new _id """
+    return mongo_collection.insert_one(kwargs).inserted_id
